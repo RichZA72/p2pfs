@@ -24,7 +24,7 @@ import (
 
 var selectedFile string
 var localFileListWidget *fyne.Container
-var conn *peer.Peer
+var conn *peer.LocalPeer
 var fileButtons map[string]*widget.Button
 var selfPort string
 var peersList []peer.PeerInfo
@@ -37,7 +37,7 @@ var selectedColor = color.RGBA{R: 0, G: 122, B: 255, A: 255}       // #007AFF
 var textPrimary = color.RGBA{R: 238, G: 238, B: 238, A: 255}       // #EEEEEE
 var textSecondary = color.RGBA{R: 200, G: 200, B: 200, A: 255}     // gris claro para fechas
 
-func StartGUI(selfID int, peers []peer.PeerInfo, self *peer.Peer) {
+func StartGUI(selfID int, peers []peer.PeerInfo, self *peer.LocalPeer) {
 	conn = self
 	fileButtons = make(map[string]*widget.Button)
 	peersList = peers
