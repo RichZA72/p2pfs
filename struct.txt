@@ -1,31 +1,171 @@
 p2pfs/
-├── cmd/
-│   └── main.go                  ← Punto de entrada: arranca servidor, cliente y GUI
-│
-├── config/
-│   └── peers.json               ← Lista de nodos (IP, puerto, ID)
-│
-├── internal/
-│   ├── peer/                    ← Lógica P2P: conexión, envío/recepción, logs
-│   │   ├── peer.go              ← Cliente TCP: enviar mensajes a otros peers
-│   │   ├── handler.go           ← Servidor TCP: recibir y procesar mensajes
-│   │   └── healthcheck.go       ← Verifica qué nodos están vivos o caídos
-│
-│   ├── fs/                      ← Operaciones sobre sistema de archivos
-│   │   ├── view.go              ← Escanear archivos locales para mostrar GUI
-│   │   ├── delete.go            ← Eliminar archivos o directorios
-│   │   ├── transfer.go          ← Guardar archivos recibidos o enviarlos
-│   │   └── sync.go              ← Re-sincronizar un nodo que se reconecta
-│
-│   ├── message/                 ← Formato común de mensajes
-│   │   └── message.go           ← Estructura Message, tipos, comandos
-│
-│   ├── log/                     ← Registro de operaciones locales
-│   │   ├── logger.go            ← Guardar y leer operaciones en archivo local
-│   │   └── model.go             ← Estructura de Operation: tipo, path, timestamp
-│
-│   └── gui/                     ← Interfaz gráfica con Fyne
-│       └── gui.go               ← Paneles, botones, íconos de estado
-│
-├── go.mod
-└── README.md
+  go.sum
+  go.mod
+  p2pfs-app
+  struct.txt
+  README.md
+  .git/
+    HEAD
+    description
+    index
+    config
+    COMMIT_EDITMSG
+    refs/
+      remotes/
+        origin/
+          main
+      tags/
+      heads/
+        main
+    hooks/
+      commit-msg.sample
+      push-to-checkout.sample
+      applypatch-msg.sample
+      update.sample
+      pre-receive.sample
+      pre-applypatch.sample
+      post-update.sample
+      prepare-commit-msg.sample
+      sendemail-validate.sample
+      pre-merge-commit.sample
+      pre-rebase.sample
+      pre-commit.sample
+      fsmonitor-watchman.sample
+      pre-push.sample
+    logs/
+      HEAD
+      refs/
+        remotes/
+          origin/
+            main
+        heads/
+          main
+    branches/
+    info/
+      exclude
+    objects/
+      d1/
+        8fa3f3cd1cf671d35ec3b6ac76b9003ae2c394
+        ae784ab52eac063869c55f76dd9e7714b2cf22
+      c4/
+        04ec993f5371966a48e35ca414c09b8eef17f5
+      88/
+        41ef0b4120852b51fd39269f53e5c5780c6a11
+      e4/
+        610997b0dc9e2f5c34b46d284fd53f8b1fb06c
+      16/
+        46d2c5b555b56d053f4fa9ebd8cebac2899f19
+      9c/
+        7875294b66438bf1d82c04c76107d71aed1470
+      20/
+        0ddc6194a6c418e7619f6652f7deee1e0d70ea
+      36/
+        cb93c39d2fc4b75380497570491c0f939aed8a
+        f9368ac8ebb50f38a9ea0206210625443f4494
+      48/
+        1901d117697d3b779b9f1854f6f7d0ab12128a
+      de/
+        da4789483dc2f4e47bcbab538656a21cd824ea
+      d7/
+        761656ced667479b46a2fa2a15fbf80e0047af
+      e6/
+        9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+      9f/
+        232a8d71b8438794c7c604435e19a0bafa8893
+      bc/
+        6c4e3ef0271720cdb421755397423b58acecda
+      bb/
+        46f8d7aaf86f618eb4a048b9692f4073202761
+      a4/
+        8996ab5832534df9c45d61e61cab6f59678a7d
+      e5/
+        842e6b483ed78ab5fa3bbfde81ae1469159095
+        1551856b49579087b22dbf334f01a8ded27a40
+      33/
+        b827b2194a8f29b5698ec2fcdbe3241ec01e03
+      09/
+        22d4e895687a540746f92bf9a98ac0f435545b
+      04/
+        29d87bf6d5b06c1e3195944b524b22bb4a3b2f
+      be/
+        cd24f86edb654f1a74c1f10adc0d81d2b91bfa
+      59/
+        7b29e1f3a74e599c6e03682f3a8db25da757fa
+      b4/
+        4ed2af478c788269b6eee14b8731be8f69ea2e
+      e1/
+        edbd8e4a1dd6a34cec011d6fc644ef3b8bce17
+      1d/
+        17bab6d824a62b5bc22bdfb3ffd305cb0029f3
+      3b/
+        8cf99704dc8019fb2addd865062bc25ac91c8d
+      17/
+        78d6749e17b53b429b6da90883285c05f1c1ab
+      b5/
+        1c85dddb1faf525450a00ccd20fddc71d56389
+      64/
+        b1c06fd7deba25dadb197d12865533c1cf061e
+      d9/
+        d4d50ef10628ca520a6ca52af02230e78b2658
+      info/
+      43/
+        63a8dd2c504fe350989c81ee04e13b6fb3adb5
+      c2/
+        dd54e69606cfd5d5165336592e749dff203ab2
+      3f/
+        c5855662178d8b70cc40a097991c5bfee9a9f9
+      6e/
+        2996560dc72871ac0c7f520d9d787ddb909acf
+      7b/
+        2b0cdff7a9eea43a944bc9e7c4f1752f6cc902
+      af/
+        5f5e29a72b00d9080f98f0a588d4d34386341a
+      55/
+        0dbe54dd39bd82241505ba2832e3c190c95271
+      2b/
+        6b5f65f8d72034e0566ded7005412f1b9bc8d5
+      e2/
+        699edc774c088ecd7e9f720de9555a7f99f998
+      69/
+        b8a61a23d6a5e318d842f17d623f1935c3ee79
+      71/
+        526f855b109d85105092010a6b3a0bd3b61006
+      28/
+        b8e0d21499f2a638acbbbce3ad9211106b9fbb
+      ba/
+        7f5c546af5e74779c9d14542610af70733d114
+      pack/
+      07/
+        019a6aaed8791dfaac678ef3bfd83177fb099e
+      62/
+        3135379f7e804167c7f7040a51653a0ccd6096
+        5ef7aca18bf76223b87f35cc969a862bb8c241
+      a9/
+        d3d395de68f503bb821207b5089cc5dfb22079
+  scripts/
+    install.sh
+  internal/
+    fs/
+      sync.go
+      delete.go
+      transfer.go
+      view.go
+    log/
+      logger.go
+      model.go
+    gui/
+      gui.go
+    peer/
+      id.go
+      handler.go
+      peer.go
+      healthcheck.go
+    message/
+      message.go
+  shared/
+    ejemplo3.txt
+    ejemplo2.txt
+  config/
+    peers.json
+  cmd/
+    main.go
